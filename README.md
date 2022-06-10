@@ -5,7 +5,7 @@
 Feito utilizando comandos do jQuery, máscaras e input-groups do Bootstrap
 
 ## Projeto
-Caso você queira ver como ficou o projeto [**clique aqui**](https://jpbrab0.github.io/pedra-papel-tesoura/)
+Caso você queira ver como ficou o projeto [**clique aqui**](https://assis-s-m.github.io/Validacao-de-formulario/)
 
 ## Tecnologias
 * HTML (Forms, Grids)
