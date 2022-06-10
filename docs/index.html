@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="js/jquery-validate/lib/jquery-3.1.1.js"></script>
+        <script src="js/jquery-validate/dist/jquery.validate.js"></script>
+        <script src="js/jquery-validate/src/core.js"></script>
+        <script src="js/jquery-validate/src/additional/cpfBR.js"></script>
+        <script src="js/jquery-validate/src/additional/postalcodeBR.js"></script>
+        <script src="js/jquery-validate/dist/localization/messages_pt_BR.js"></script>
+        <script src="js/validate.js"></script>
+        <script src="js/jQuery-Mask-Plugin-master/dist/jquery.mask.js"></script>
+        
+        <style>
+            .error{border-color: red;}
+            .ok{border-color: green;}
+        </style>
+        <title>Validar formulario</title>
+    </head>
+    <body>
+        <!-- formulario de validação -->
+        <form name="frmCadastro" id="frmCadastro" method="post" action="">
+            <div class="container">
+              
+                <!-- linha (título) -->
+                <div class="row justify-content-center">
+                <div class="col-4"><h1>Validar o formulário</h1></div>
+                </div>
+                
+                <!-- linha (Nome e data) -->
+                <div class="row justify-content-center">
+                  
+                    <!-- Nome -->
+                    <div class="col-5">
+                        <div class="input-group mb-5">
+                            <div class="col-sm-4">
+                              <span class="input-group-text" id="basic-addon1">Nome completo</span>
+                            </div>
+                            <div class="col-sm-7">
+                            <input type="text" class="form-control" placeholder="Nome completo" aria-label="Username" aria-describedby="basic-addon1" name="nome" id="nome" >
+                            </div>
+                        </div>          
+                        
+                    <!-- Data -->
+                    </div>
+                    <div class="col-5">
+                        <div class="input-group mb-3">
+                            <div class="col-sm-4">
+                              <span class="input-group-text" id="basic-addon1">Data de nascimento</span>
+                            </div>
+                            <div class="col-3">
+                            <input type="text" class="form-control" placeholder="DD/MM/AAAA" aria-label="Username" aria-describedby="basic-addon1" name="dataNascimento" id="dataNascimento" onkeypress="$(this).mask('00/00/0000')" >
+                            </div>
+                        </div>      
+                    </div>
+                </div>
+
+                <!-- linha (N. da residência e cidade -->
+                <div class="row justify-content-center">
+                     <!-- N. da residência -->
+                    <div class="col-5">
+                        <div class="input-group mb-3">
+                            <div class="col-sm-5">
+                              <span class="input-group-text" id="basic-addon1">Numero da residencia</span>
+                            </div>
+                            <div class="col-sm-4">
+                            <input type="text" class="form-control" placeholder="Somente numeros" aria-label="Username" aria-describedby="basic-addon1" name="numRes" id="numRes" >
+                            </div>
+                        </div>          
+                        
+                    <!-- Cidade -->
+                    </div>
+                    <div class="col-5">
+                        <div class="input-group mb-3">
+                            <div class="col-sm-2">
+                              <span class="input-group-text" id="basic-addon1">Cidade</span>
+                            </div>
+                            <div class="col-4">
+                            <input type="text" class="form-control" placeholder="Digite a sua cidade" aria-label="Username" aria-describedby="basic-addon1" name="cidade" id="cidade" >
+                            </div>
+                        </div>      
+                    </div>
+                </div>
+
+                <!-- linha (UF e Rua) -->
+                <div class="row justify-content-center">
+                  
+                    <!-- UF -->
+                    <div class="col-5">
+                        <div class="input-group mb-3">
+                            <div class="col-sm-1">
+                              <span class="input-group-text" id="basic-addon1">UF</span>
+                            </div>
+                            <div class="col-sm-2">
+                                <select class="form-select" aria-label="Default select example" name="uf" id="uf" >
+                                    <option value="1" selected>CE</option>
+                                    <option value="2">ES</option>
+                                    <option value="3">SP</option>
+                                    <option value="4">BA</option>
+                                    <option value="5">MG</option>
+                                  </select>
+                            </div>
+                        </div>                      
+                    <!-- Rua -->
+                    </div>
+                    <div class="col-5">
+                        <div class="input-group mb-3">
+                            <div class="col-sm-2">
+                              <span class="input-group-text" id="basic-addon1">Rua</span>
+                            </div>
+                            <div class="col-5">
+                            <input type="text" class="form-control" placeholder="Digite a sua rua" aria-label="Username" aria-describedby="basic-addon1" name="rua" id="rua" >
+                            </div>
+                        </div>      
+                    </div>
+                </div>
+
+                <!-- linha (CEP e Bairro) -->
+                <div class="row justify-content-center">
+                  
+                    <!-- CEP -->
+                    <div class="col-5">
+                        <div class="input-group mb-3">
+                            <div class="col-sm-2">
+                              <span class="input-group-text" id="basic-addon1">CEP</span>
+                            </div>
+                            <div class="col-sm-4">
+                            <input type="text" class="form-control" placeholder="Digite o seu CEP" aria-label="Username" aria-describedby="basic-addon1" name="cep" id="cep" onkeypress="$(this).mask('00000-000')" >
+                            </div>
+                        </div>      
+                    </div>
+                    
+                     <!-- Bairro -->
+                    <div class="col-5">
+                        <div class="input-group mb-3">
+                            <div class="col-sm-2">
+                              <span class="input-group-text" id="basic-addon1">Bairro</span>
+                            </div>
+                            <div class="col-5">
+                            <input type="text" class="form-control" placeholder="Digite o o seu bairro" aria-label="Username" aria-describedby="basic-addon1" name="bairro" id="bairro" >
+                            </div>
+                        </div>      
+                    </div>
+                </div>
+
+                <!-- linha (CPF e Endereço) -->
+                <div class="row justify-content-center">
+                    <div class="col-5">
+                        <div class="input-group mb-5">
+                            <div class="col-sm-2">
+                              <span class="input-group-text" id="basic-addon1">CPF</span>
+                            </div>
+                            <div class="col-sm-4">
+                            <input type="text" class="form-control" placeholder="Digite o CPF" aria-label="Username" aria-describedby="basic-addon1" name="cpf" id="cpf" onkeypress="$(this).mask('000-000-000-00')" >
+                            </div>
+                        </div>                          
+                    </div>
+                    <div class="col-5">
+                        <div class="input-group mb-3">
+                            <div class="col-sm-2">
+                              <span class="input-group-text" id="basic-addon1">Endereço</span>
+                            </div>
+                            <div class="col-8">
+                            <input type="text" class="form-control" placeholder="Digite o seu endereço" aria-label="Username" aria-describedby="basic-addon1" name="endereco" id="endereco" >
+                            </div>
+                        </div>      
+                    </div>
+                </div>
+
+                <!-- linha (Tel. celular e Tel. fixo -->
+                <div class="row justify-content-center">
+                  
+                    <!-- Tel. celular -->
+                    <div class="col-5">
+                        <div class="input-group mb-5">
+                            <div class="col-sm-3">
+                              <span class="input-group-text" id="basic-addon1">Telefone celular</span>
+                            </div>
+                            <div class="col-sm-5">
+                            <input type="text" class="form-control" placeholder="Digite o telefone celular" aria-label="Username" aria-describedby="basic-addon1" name="telCel" id="telCel" onkeypress="$(this).mask('0 0000-0000')" >
+                            </div>
+                        </div>                       
+                    <!-- Tel. fixo -->
+                    </div>
+                    <div class="col-5">
+                        <div class="input-group mb-3">
+                            <div class="col-sm-3">
+                              <span class="input-group-text" id="basic-addon1">Telefone fixo</span>
+                            </div>
+                            <div class="col-4">
+                            <input type="text" class="form-control" placeholder="Digite o seu telefone" aria-label="Username" aria-describedby="basic-addon1" name="telfix" id="telfix" onkeypress="$(this).mask('0000-0000')" >
+                            </div>
+                        </div>      
+                    </div>
+                </div>
+
+                <!-- linha (Usuario e Email) -->
+                <div class="row justify-content-center">
+                  
+                    <!-- Usuario -->
+                    <div class="col-5">
+                        <div class="input-group mb-3">
+                            <div class="col-sm-2">
+                              <span class="input-group-text" id="basic-addon1">Usuario</span>
+                            </div>
+                            <div class="col-4">
+                            <input type="text" class="form-control" placeholder="Digite a Usuario" aria-label="Username" aria-describedby="basic-addon1" name="user" id="user" >
+                            </div>
+                        </div>      
+                    </div>
+
+                    <!-- Email -->
+                    <div class="col-5">
+                        <div class="input-group mb-3">
+                            <div class="col-sm-2">
+                              <span class="input-group-text" id="basic-addon1">Email</span>
+                            </div>
+                            <div class="col-6">
+                            <input type="email" class="form-control" placeholder="Digite o seu Email" aria-label="Username" aria-describedby="basic-addon1" name="email" id="email" >
+                            </div>
+                        </div>      
+                    </div>
+                </div>
+
+                <!-- linha (Senha e Confirma senha) -->
+                <div class="row justify-content-center">
+                  
+                    <!-- Senha -->
+                    <div class="col-5">
+                        <div class="input-group mb-3">
+                            <div class="col-sm-2">
+                              <span class="input-group-text" id="basic-addon1">Senha</span>
+                            </div>
+                            <div class="col-sm-5">
+                            <input type="password" class="form-control" placeholder="Digite a senha" aria-label="Username" aria-describedby="basic-addon1" name="senha" id="senha" >
+                            </div>
+                        </div>           
+                    <!-- Confirma senha -->
+                    </div>
+                    <div class="col-5">
+                        <div class="input-group mb-3">
+                            <div class="col-sm-3">
+                              <span class="input-group-text" id="basic-addon1">Confirma senha</span>
+                            </div>
+                            <div class="col-5">
+                            <input type="text" class="form-control" placeholder="Confirme a senha" aria-label="Username" aria-describedby="basic-addon1" name="confSenha" id="confSenha" >
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                
+                <!-- linha (Enviar e Limpar dados do formulário) -->
+                <div class="row justify-content-center">
+                    <div class="col col-lg-4">
+                      
+                        <!-- Enviar -->
+                        <button class="btn btn-outline-primary me-md-4" type="submit">Enviar dados</button>
+                    </div>
+                    <div class="col col-lg-3">
+                        
+                        <!-- Limpar -->
+                        <button class="btn btn-outline-warning me-md-4" type="reset">Limpar dados</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
